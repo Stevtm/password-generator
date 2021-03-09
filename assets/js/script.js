@@ -1,17 +1,31 @@
-// Assignment code here
+// ----- declare arrays for all possible characters -----
+// special characters
+var specialChars = "!#$%&'()*+,-./;<=>?@[\\]^_`{|}~".split("");
+specialChars.push('"');
 
+// lowercase letters
+var lowerLetters = "abcdefghijklmnopqrstuvwxyz".split("");
 
-// Get references to the #generate element
-var generateBtn = document.querySelector("#generate");
+// uppercase letters
+var upperLetters = [];
 
-// Write password to the #password input
-function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
-
-  passwordText.value = password;
-
+for (var i = 0; i < lowerLetters.length; i++) {
+	upperLetters[i] = lowerLetters[i].toUpperCase();
 }
 
-// Add event listener to generate button
+// numbers
+var nums = "1234567890".split("");
+
+// get references to the #generate element
+var generateBtn = document.querySelector("#generate");
+
+// write password to the #password input
+function writePassword() {
+	var password = generatePassword();
+	var passwordText = document.querySelector("#password");
+
+	passwordText.value = password;
+}
+
+// add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
