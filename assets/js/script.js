@@ -107,19 +107,17 @@ var generatePassword = function () {
 	return password;
 };
 
-var test = generatePassword();
-
 // ----- push the generated password to the screen -----
 // get references to the #generate element
-// var generateBtn = document.querySelector("#generate");
+var generateBtn = document.querySelector("#generate");
 
 // write password to the #password input
-// function writePassword() {
-// 	var password = generatePassword();
-// 	var passwordText = document.querySelector("#password");
+function writePassword() {
+	var password = generatePassword();
+	var passwordText = document.querySelector("#password");
 
-// 	passwordText.value = password;
-// }
+	passwordText.value = password;
+}
 
 // add event listener to generate button
-// generateBtn.addEventListener("click", writePassword);
+generateBtn.addEventListener("click", writePassword);
