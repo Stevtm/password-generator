@@ -31,7 +31,7 @@ var gatherReqs = function () {
 		alert("Please enter a valid number between 8 and 128");
 		// if a non-number was entered, repeat the function call
 		return gatherReqs();
-	} else if (7 < length && length < 128) {
+	} else if (7 < length && length < 129) {
 		responses.length = length;
 	} else {
 		alert("Please enter a valid number between 8 and 128");
