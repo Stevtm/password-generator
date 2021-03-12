@@ -39,6 +39,22 @@ var gatherReqs = function () {
 		return gatherReqs();
 	}
 
+	// get character responses form gatherChars function and add them to the responses object
+	var chars = gatherChars();
+	responses.special = chars.special;
+	responses.lower = chars.lower;
+	responses.upper = chars.upper;
+	responses.number = chars.number;
+
+	return responses;
+
+	// return the object of response parameters
+};
+
+// ---- function that takes character requirements and validates that there is at least one selected -----
+var gatherChars = function () {
+	var responses = {};
+
 	// --- character requirements (reponse stored as true/false) ---
 	responses.special = confirm(
 		'Would you like to include special characters (e.g. $, %, &)? Press "Cancel" if NO. Press "Submit" is YES.'
@@ -53,9 +69,18 @@ var gatherReqs = function () {
 		'Would you like to include numeric characters? Press "Cancel" if NO. Press "Submit" if YES.'
 	);
 
-	return responses;
-
-	// return the object of response parameters
+	// check that at least one character type has been selected
+	if (
+		responses.special |
+		responses.lower |
+		responses.upper |
+		responses.number
+	) {
+		return responses;
+	} else {
+		alert("Please select at least one character type!");
+		return gatherChars();
+	}
 };
 
 // ----- function that takes user responses and makes an array of all possible characters -----
