@@ -19,4 +19,4 @@ The application is able to generate passwords with the following criteria:
 
 This is a screenshot of the deployed site!
 
-![Screenshot of the deployed webiste](/assets/images/site-screenshot.png "Screenshot of the deployed website)
+![Screenshot of the deployed webiste](/assets/images/site-screenshot.png "Screenshot of the deployed website")
