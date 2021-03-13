@@ -1,6 +1,7 @@
 // ----- declare arrays for all possible characters -----
 // special characters
-var specialChars = "!#$%&'()*+,-./;<=>?@[\\]^_`{|}~".split("");
+var specialChars = " !#$%&'()*+,-./;<=>?@[\\]^_`{|}~".split("");
+// add double quote to array of special characters
 specialChars.push('"');
 
 // lowercase letters
@@ -8,7 +9,6 @@ var lowerChars = "abcdefghijklmnopqrstuvwxyz".split("");
 
 // uppercase letters
 var upperChars = [];
-
 for (var i = 0; i < lowerChars.length; i++) {
 	upperChars[i] = lowerChars[i].toUpperCase();
 }
@@ -30,21 +30,20 @@ var gatherReqs = function () {
 	if (7 < length && length < 129) {
 		responses.length = length;
 	} else {
-		// if a number outside of the desired range was entered, repeat the function call
+		// if a number outside of the desired range or a non-number was entered, repeat the function call
 		alert("Please enter a valid number between 8 and 128");
 		return gatherReqs();
 	}
 
-	// get character responses foro gatherChars function and add them to the responses object
+	// get character responses from gatherChars function and add them to the responses object
 	var chars = gatherChars();
 	responses.special = chars.special;
 	responses.lower = chars.lower;
 	responses.upper = chars.upper;
 	responses.number = chars.number;
 
-	return responses;
-
 	// return the object of response parameters
+	return responses;
 };
 
 // ---- function that takes character requirements and validates that there is at least one selected -----
@@ -82,7 +81,7 @@ var gatherChars = function () {
 
 // ----- function that takes user responses and makes an array of all possible characters -----
 var generatePossibleChars = function (responses) {
-	// initialize the empty array
+	// declare the empty array
 	var possibleChars = [];
 
 	// add all applicable characters to the array
