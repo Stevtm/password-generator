@@ -26,20 +26,16 @@ var gatherReqs = function () {
 		prompt("Please enter the desired password length, from 8 to 128 characters")
 	);
 
-	// check if a valid number was entered (if statement is to check for NaN)
-	if (length !== length) {
-		alert("Please enter a valid number between 8 and 128");
-		// if a non-number was entered, repeat the function call
-		return gatherReqs();
-	} else if (7 < length && length < 129) {
+	// check if a valid number was entered
+	if (7 < length && length < 129) {
 		responses.length = length;
 	} else {
-		alert("Please enter a valid number between 8 and 128");
 		// if a number outside of the desired range was entered, repeat the function call
+		alert("Please enter a valid number between 8 and 128");
 		return gatherReqs();
 	}
 
-	// get character responses form gatherChars function and add them to the responses object
+	// get character responses foro gatherChars function and add them to the responses object
 	var chars = gatherChars();
 	responses.special = chars.special;
 	responses.lower = chars.lower;
@@ -78,6 +74,7 @@ var gatherChars = function () {
 	) {
 		return responses;
 	} else {
+		// if no character type has been selected, repeat the function call
 		alert("Please select at least one character type!");
 		return gatherChars();
 	}
@@ -89,16 +86,16 @@ var generatePossibleChars = function (responses) {
 	var possibleChars = [];
 
 	// add all applicable characters to the array
-	if (responses.special === true) {
+	if (responses.special) {
 		possibleChars = possibleChars.concat(specialChars);
 	}
-	if (responses.lower === true) {
+	if (responses.lower) {
 		possibleChars = possibleChars.concat(lowerChars);
 	}
-	if (responses.upper === true) {
+	if (responses.upper) {
 		possibleChars = possibleChars.concat(upperChars);
 	}
-	if (responses.number === true) {
+	if (responses.number) {
 		possibleChars = possibleChars.concat(numberChars);
 	}
 
